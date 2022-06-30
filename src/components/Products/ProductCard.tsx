@@ -41,7 +41,7 @@ export default function ProductCard({ product }: Props) {
             {title}
           </Typography>
           <Typography variant="body1" color="text.secondary" fontWeight="bold">
-            ${price}
+            ${price.toFixed(2)}
           </Typography>
         </CardContent>
         <CardActions sx={{ px: 2 }}>
