@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartCountContext from "../context/CartCountContext";
+import CartCountContext from "../../context/CartCountContext";
 
 export default function Nav() {
   const { cartCount } = useContext(CartCountContext);
