@@ -1,7 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Product } from "../types";
-import { getData } from "../utils";
+import { Product } from "../../types";
+import { getData } from "../../utils";
 import ProductCard from "./ProductCard";
 
 export default function Products() {

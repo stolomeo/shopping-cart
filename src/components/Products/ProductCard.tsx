@@ -5,7 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Product } from "../types";
+import { Product } from "../../types";
 
 type Props = {
   product: Product;
@@ -16,14 +16,8 @@ export default function ProductCard({ product }: Props) {
 
   return (
     <Grid item xs={4}>
-      <Card sx={{ maxWidth: 330 }}>
-        <CardMedia
-          component="img"
-          height={300}
-          image={image}
-          alt="rick"
-          sx={{ padding: 5 }}
-        />
+      <Card>
+        <CardMedia component="img" image={image} alt="product" />
         <CardContent>
           <Typography variant="h6" color="text.secondary" fontWeight="bold">
             {title}
