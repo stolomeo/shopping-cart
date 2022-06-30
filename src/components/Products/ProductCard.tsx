@@ -5,6 +5,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { useContext } from "react";
+import CartCountContext from "../../context/CartCountContext";
 import { Product } from "../../types";
 
 type Props = {
@@ -13,6 +15,11 @@ type Props = {
 
 export default function ProductCard({ product }: Props) {
   const { title, price, image } = product;
+  const { cartCount, setCartCount } = useContext(CartCountContext);
+
+  const handleAddToCart = () => {
+    setCartCount(cartCount + 1);
+  };
 
   return (
     <Grid item xs={4}>
@@ -27,7 +34,12 @@ export default function ProductCard({ product }: Props) {
           </Typography>
         </CardContent>
         <CardActions sx={{ px: 2 }}>
-          <Button fullWidth={true} variant="contained" color="primary">
+          <Button
+            fullWidth={true}
+            variant="contained"
+            color="primary"
+            onClick={handleAddToCart}
+          >
             Add To Cart
           </Button>
         </CardActions>
