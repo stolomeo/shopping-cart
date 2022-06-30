@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Product } from "../types";
 import { getData } from "../utils";
@@ -18,9 +18,15 @@ export default function Products() {
   ) : (
     products.map((product) => {
       const { id } = product as Product;
-      return <ProductCard key={id} {...product} />;
+      return <ProductCard key={id} product={product} />;
     })
   );
 
-  return <Container maxWidth="lg">{productElements}</Container>;
+  return (
+    <Container maxWidth="lg">
+      <Grid container spacing={2}>
+        {productElements}
+      </Grid>
+    </Container>
+  );
 }
