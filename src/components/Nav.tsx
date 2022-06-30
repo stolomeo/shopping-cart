@@ -20,12 +20,19 @@ export default function Nav() {
           sx={{ flexGrow: 1 }}
         >
           <Typography component="h1" variant="h4">
-            Shopping Cart
+            Fake Store
           </Typography>
         </IconButton>
         <IconButton>
           <ShoppingCart fontSize="large" />
-          <Typography variant="h5">{cartCount}</Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              display: !cartCount ? "none" : "block",
+            }}
+          >
+            {cartCount}
+          </Typography>
         </IconButton>
       </Toolbar>
     </AppBar>
