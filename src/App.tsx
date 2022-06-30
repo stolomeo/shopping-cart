@@ -1,14 +1,23 @@
+import { CssBaseline } from "@mui/material";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Nav from "./components/Nav";
+import CartCountContext from "./context/CartCountContext";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 
 function App() {
+  const [cartCount, setCartCount] = useState(0);
   return (
     <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
-      </Routes>
+      <CssBaseline />
+      <CartCountContext.Provider value={{ cartCount, setCartCount }}>
+        <Nav />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="shop" element={<Shop />} />
+        </Routes>
+      </CartCountContext.Provider>
     </BrowserRouter>
   );
 }
