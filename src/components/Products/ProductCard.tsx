@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function ProductCard({ product }: Props) {
-  const { title, price, description, category, image, rating } = product;
+  const { title, price, image } = product;
 
   return (
     <Grid item xs={4}>
