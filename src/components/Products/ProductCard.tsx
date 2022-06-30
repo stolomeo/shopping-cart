@@ -17,20 +17,31 @@ export default function ProductCard({ product }: Props) {
   const { title, price, image } = product;
   const { cartCount, setCartCount } = useContext(CartCountContext);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    console.log(e);
     setCartCount(cartCount + 1);
   };
 
   return (
     <Grid item xs={4}>
-      <Card>
-        <CardMedia component="img" image={image} alt="product" />
-        <CardContent>
+      <Card
+        sx={{
+          height: 450,
+        }}
+      >
+        <CardMedia
+          component="img"
+          image={image}
+          height={250}
+          sx={{ objectFit: "contain", p: 4 }}
+          alt="product"
+        />
+        <CardContent sx={{ height: 130 }}>
           <Typography variant="h6" color="text.secondary" fontWeight="bold">
             {title}
           </Typography>
           <Typography variant="body1" color="text.secondary" fontWeight="bold">
-            {price}
+            ${price}
           </Typography>
         </CardContent>
         <CardActions sx={{ px: 2 }}>

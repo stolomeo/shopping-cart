@@ -23,8 +23,8 @@ export default function Products() {
   );
 
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={2}>
+    <Container maxWidth="lg" sx={{ mt: 3 }}>
+      <Grid container spacing={4}>
         {productElements}
       </Grid>
     </Container>
