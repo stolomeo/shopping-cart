@@ -23,7 +23,7 @@ export default function Nav() {
             Fake Store
           </Typography>
         </IconButton>
-        <IconButton>
+        <IconButton component={Link} to="/checkout">
           <ShoppingCart fontSize="large" />
           <Typography
             variant="h5"
