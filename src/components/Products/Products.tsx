@@ -1,11 +1,18 @@
 import { Container, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import CartCountContext from "../../context/CartCountContext";
 import { Product } from "../../types";
 import { getData } from "../../utils";
-import ProductCard from "./ProductCard";
+import ProductCard from "./ProductCard/ProductCard";
 
 export default function Products() {
   const [products, setProducts] = useState<Product[]>();
+  const [cartitems, setCartitems] = useState<Product[]>();
+  const { cartCount, setCartCount } = useContext(CartCountContext);
+
+  const handleAddToCart = (id: number) => {
+    setCartCount(cartCount + 1);
+  };
 
   useEffect(() => {
     (async () => {
@@ -18,7 +25,9 @@ export default function Products() {
   ) : (
     products.map((product) => {
       const { id } = product as Product;
-      return <ProductCard key={id} product={product} />;
+      return (
+        <ProductCard key={id} {...product} handleAddToCart={handleAddToCart} />
+      );
     })
   );
 

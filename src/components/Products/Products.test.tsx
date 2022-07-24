@@ -4,7 +4,6 @@ import Products from "./Products";
 
 describe("<Products />", () => {
   const renderComponent = () => render(<Products />);
-  expect.extend(toHaveNoViolations);
 
   it("should match snapshot", () => {
     const { container } = renderComponent();
